@@ -1,0 +1,41 @@
+<div class="row">
+    <h1>Transfers</h1>
+
+    <div class="col-md-6">
+        <table class="table">
+            <thead>
+            <tr>
+                <th>Start</th>
+                <th>Ziel</th>
+                <th>Zeit</th>
+                <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="transfer in transfers">
+                <td>{{transfer.start}}</td>
+                <td>{{transfer.destination}}</td>
+                <td>{{transfer.time}}</td>
+                <td><a ng-click="remove(transfer._id)"><span class="glyphicon glyphicon-remove"></span></a></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="col-md-6">
+        <form name="transferForm" novalidate>
+            <div class="form-group">
+                <label for="start">Start</label>
+                <input type="text" class="form-control" id="start" ng-model="transfer.start" required>
+            </div>
+            <div class="form-group">
+                <label for="destiantion">Ziel</label>
+                <input type="text" class="form-control" id="destiantion" ng-model="transfer.destination" required>
+            </div>
+            <div class="form-group">
+                <label for="time">Zeit</label>
+                <input type="time" class="form-control" id="time" ng-model="transfer.time" required>
+            </div>
+            <button type="submit" class="btn btn-default" ng-click="submit(transfer)">Submit</button>
+        </form>
+    </div>
+</div>
